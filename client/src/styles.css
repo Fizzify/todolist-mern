@@ -1,0 +1,41 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.todoItem {
+  padding: 0.5em 0;
+}
+.checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 0.5em;
+}
+
+.addItem {
+  margin-left: 0.5em;
+  font-family: inherit;
+}
+
+.itemInput {
+  display: inline-block;
+}

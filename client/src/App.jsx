@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
+import { Button, Input } from "@mantine/core";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
@@ -17,12 +18,12 @@ function App() {
     axios
       .post("http://localhost:3001/createItem", { item: item })
       .then((res) => {
-        setTimeout(() => {
-          setTodoItems((prevItems) => {
-            return [...prevItems, item];
-          });
-        }, 1000);
+        setTodoItems((prevItems) => {
+          return [...prevItems, { item: res.data.item }];
+        });
       });
+
+    setItem("");
   }
 
   function handleChange(e) {
@@ -43,8 +44,8 @@ function App() {
   }
 
   return (
-    <div>
-      <div className="items">
+    <>
+      <>
         <ul>
           {todoItems.map((todoItem, index) => {
             return (
@@ -57,18 +58,19 @@ function App() {
             );
           })}
         </ul>
-      </div>
-      <input
+      </>
+      <Input
+        className="itemInput"
         onChange={handleChange}
         value={item}
         type="text"
         name="todoItem"
         placeholder="New Item..."
       />
-      <button type="button" onClick={createItem}>
+      <Button className="addItem" type="button" onClick={createItem}>
         Add Item
-      </button>
-    </div>
+      </Button>
+    </>
   );
 }
 

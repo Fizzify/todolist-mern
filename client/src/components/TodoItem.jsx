@@ -1,8 +1,10 @@
+import { Checkbox } from "@mantine/core";
+
 function TodoItem(props) {
   return (
-    <div className="todo-item">
-      <input
-        type="checkbox"
+    <div className="todoItem">
+      <Checkbox
+        className="checkbox"
         onChange={(e) => {
           e.preventDefault();
           props.onCheck(props.index);
